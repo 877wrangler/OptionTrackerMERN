@@ -9,6 +9,8 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(cors());
+
+// All endpoints in userRouter(users.js) first route through /auth, for example /auth/login
 app.use('/auth', userRouter);
 
 mongoose.connect(
