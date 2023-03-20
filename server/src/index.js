@@ -3,11 +3,13 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-const app = express();
+import { userRouter } from '../routes/users.js';
 
+const app = express();
+dotenv.config();
 app.use(express.json());
 app.use(cors());
-dotenv.config();
+app.use('/auth', userRouter);
 
 mongoose.connect(
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}`
