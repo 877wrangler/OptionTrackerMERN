@@ -33,6 +33,7 @@ router.post('/login', async (req, res) => {
     // Search MongoDB collection 'users' where username = a username
     const user = await UserModel.findOne({ username });
 
+    
     // If user does not exist
     if (!user) {
         return res.json({ message: "User Doesn't Exist" });
